@@ -1,4 +1,4 @@
-# AI Agents Portfolio
+# AI Agents by Adnan Raza
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-0.3-green)
@@ -43,8 +43,8 @@ Built by **Adnan Raza** — AI Engineer specializing in Generative AI, multi-age
 ## Quick Start
 
 ```bash
-git clone https://github.com/AdnanRaza88/ai-agents-portfolio.git
-cd ai-agents-portfolio
+git clone https://github.com/AdnanRaza88/ai-agents-by-AdnanRaza.git
+cd ai-agents-by-AdnanRaza
 
 # Pick any agent
 cd agents/01-smart-support-agent
@@ -60,7 +60,7 @@ Each agent is self-contained and can be run independently.
 ## Project Structure
 
 ```
-ai-agents-portfolio/
+ai-agents-by-AdnanRaza/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
