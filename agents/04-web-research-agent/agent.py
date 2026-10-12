@@ -81,13 +81,13 @@ def main() -> None:
     parser.add_argument("--query", default="latest advances in AI agents 2025", help="Research query")
     args = parser.parse_args()
 
-    print(f"\n🔍 Researching: {args.query}\n")
+    print(f"\nResearching: {args.query}\n")
 
     agent = build_graph()
     result = agent.invoke({"query": args.query, "messages": [], "search_results": [], "report": ""})
 
     print("=" * 60)
-    print("📄 RESEARCH REPORT")
+    print("RESEARCH REPORT")
     print("=" * 60)
     print(result["report"])
 

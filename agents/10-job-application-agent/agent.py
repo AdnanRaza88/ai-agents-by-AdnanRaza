@@ -41,7 +41,7 @@ Responsibilities:
 """
 
 SAMPLE_CANDIDATE = """
-Jane Doe — 7 years Python experience
+Jane Doe - 7 years Python experience
 Current role: Senior Software Engineer at DataCorp
 Skills: Python, FastAPI, Django, PostgreSQL, Redis, Docker, Kubernetes, AWS
 Achievements:
@@ -111,11 +111,11 @@ def main() -> None:
     parser.add_argument("--candidate", default=SAMPLE_CANDIDATE, help="Candidate profile summary")
     args = parser.parse_args()
 
-    print("\n💼 Preparing job application materials...\n")
+    print("\nPreparing job application materials...\n")
     result = run_job_application_crew(args.job_desc, args.candidate)
 
     print("=" * 60)
-    print("📋 JOB APPLICATION PACKAGE")
+    print("JOB APPLICATION PACKAGE")
     print("=" * 60)
     print(result)
 

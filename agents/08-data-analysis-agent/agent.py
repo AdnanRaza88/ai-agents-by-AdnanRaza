@@ -2,11 +2,11 @@
 Data Analysis Agent using LangChain + pandas.
 
 Loads a CSV/Excel file and answers analytical questions about it using
-natural language. The agent generates Python/pandas code to answer questions.
+natural language.
 
 Usage:
-    python agent.py --file data.csv
-    python agent.py --file sales.xlsx --question "What is the monthly revenue trend?"
+    python agent.py --file data.csv --allow-dangerous-code
+    python agent.py --file sales.xlsx --question "What is the monthly revenue trend?" --allow-dangerous-code
 """
 
 import argparse
@@ -25,7 +25,6 @@ logger = logging.getLogger(__name__)
 
 
 def create_sample_data(path: str) -> pd.DataFrame:
-    """Creates a sample sales dataset for demo."""
     import random
     from datetime import date, timedelta
 
@@ -64,17 +63,17 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.file == "sample_data.csv" and not os.path.exists("sample_data.csv"):
-        print("🏗️  Creating sample sales dataset...")
+        print("Creating sample sales dataset...")
         df = create_sample_data("sample_data.csv")
     else:
         ext = os.path.splitext(args.file)[1].lower()
         df = pd.read_excel(args.file) if ext in (".xlsx", ".xls") else pd.read_csv(args.file)
 
-    print(f"\n📊 Loaded: {args.file} ({len(df)} rows × {len(df.columns)} columns)")
-    print(f"📋 Columns: {', '.join(df.columns)}\n")
+    print(f"\nLoaded: {args.file} ({len(df)} rows x {len(df.columns)} columns)")
+    print(f"Columns: {', '.join(df.columns)}\n")
 
     if not args.allow_dangerous_code:
-        print("⚠️  This agent uses LangChain's pandas agent, which executes model-generated Python code.")
+        print("This agent uses LangChain's pandas agent, which executes model-generated Python code.")
         print("Run again with --allow-dangerous-code only with trusted prompts and non-sensitive data.")
         return
 
@@ -87,11 +86,11 @@ def main() -> None:
     )
 
     if args.question:
-        print(f"❓ Question: {args.question}")
+        print(f"Question: {args.question}")
         result = agent.invoke({"input": args.question})
-        print(f"\n✅ Answer: {result['output']}")
+        print(f"\nAnswer: {result['output']}")
     else:
-        print("💬 Data Analysis Agent ready. Ask questions about your data. Type 'quit' to exit.\n")
+        print("Data Analysis Agent ready. Ask questions about your data. Type 'quit' to exit.\n")
         print("Example questions:")
         print("  - What is the total revenue by product?")
         print("  - Which region has the highest average order value?")

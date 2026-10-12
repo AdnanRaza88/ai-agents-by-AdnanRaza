@@ -93,12 +93,12 @@ def main() -> None:
     parser.add_argument("--ticker", required=True, help="Stock ticker symbol (e.g., AAPL)")
     args = parser.parse_args()
 
-    print(f"\n📈 Researching {args.ticker}...\n")
+    print(f"\nResearching {args.ticker}...\n")
 
     data = get_stock_data(args.ticker)
 
     print("=" * 60)
-    print(f"📊 {data.get('name', args.ticker)} ({args.ticker})")
+    print(f"{data.get('name', args.ticker)} ({args.ticker})")
     print("=" * 60)
     print(f"Price: ${data.get('price', 'N/A')}  |  Market Cap: {format_number(data.get('market_cap', 0))}")
     print(f"Sector: {data.get('sector')}  |  Industry: {data.get('industry')}")
@@ -107,7 +107,7 @@ def main() -> None:
     analyst_rating = data.get("analyst_rating") or "N/A"
     print(f"Analyst: {str(analyst_rating).upper()}  |  Target: ${data.get('target_price', 'N/A')}")
 
-    print("\n🤖 AI Analysis:")
+    print("\nAI Analysis:")
     print("-" * 40)
     analysis = analyze_stock(data)
     print(analysis)

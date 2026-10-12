@@ -23,13 +23,13 @@ logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = """You are an expert code reviewer. Analyze the provided code and return a structured review covering:
 
-1. **Bugs & Correctness** — logic errors, edge cases, exception handling
-2. **Security Issues** — injection risks, secrets exposure, unsafe operations
-3. **Performance** — inefficiencies, unnecessary computation, memory issues
-4. **Code Style** — PEP 8 violations, naming conventions, readability
-5. **Improvements** — refactoring suggestions, better patterns
+1. Bugs and Correctness - logic errors, edge cases, exception handling
+2. Security Issues - injection risks, secrets exposure, unsafe operations
+3. Performance - inefficiencies, unnecessary computation, memory issues
+4. Code Style - PEP 8 violations, naming conventions, readability
+5. Improvements - refactoring suggestions, better patterns
 
-Format: Use markdown. Rate overall quality as: 🟢 Good / 🟡 Needs Work / 🔴 Critical Issues."""
+Format: Use markdown. Rate overall quality as: Good / Needs Work / Critical Issues."""
 
 
 def review_code(code: str, language: str = "python") -> str:
@@ -53,15 +53,15 @@ def main() -> None:
     if args.file:
         with open(args.file, encoding="utf-8") as f:
             code = f.read()
-        print(f"\n🔍 Reviewing: {args.file}\n")
+        print(f"\nReviewing: {args.file}\n")
     else:
         code = args.code
-        print("\n🔍 Reviewing inline code snippet\n")
+        print("\nReviewing inline code snippet\n")
 
     review = review_code(code, args.language)
 
     print("=" * 60)
-    print("📋 CODE REVIEW")
+    print("CODE REVIEW")
     print("=" * 60)
     print(review)
 

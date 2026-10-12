@@ -5,8 +5,8 @@ Connects to a SQLite database and answers natural language questions
 by generating and executing SQL queries.
 
 Usage:
-    python agent.py                          # uses demo database
-    python agent.py --db path/to/db.sqlite   # your database
+    python agent.py
+    python agent.py --db path/to/db.sqlite
     python agent.py --db mydb.sqlite --question "How many users signed up last month?"
 """
 
@@ -30,7 +30,6 @@ logger = logging.getLogger(__name__)
 
 
 def create_demo_database(db_path: str) -> None:
-    """Creates a demo e-commerce SQLite database for testing."""
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
     cur.executescript("""
@@ -111,20 +110,20 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.db == "demo.sqlite" and not os.path.exists("demo.sqlite"):
-        print("🏗️  Creating demo e-commerce database...")
+        print("Creating demo e-commerce database...")
         create_demo_database("demo.sqlite")
 
     agent, db = build_agent(args.db, read_only=not args.allow_write)
-    print(f"\n📊 Connected to: {args.db}")
-    print(f"🔒 Mode: {'read-write' if args.allow_write else 'read-only'}")
-    print(f"📋 Tables: {', '.join(db.get_table_names())}\n")
+    print(f"\nConnected to: {args.db}")
+    print(f"Mode: {'read-write' if args.allow_write else 'read-only'}")
+    print(f"Tables: {', '.join(db.get_table_names())}\n")
 
     if args.question:
-        print(f"❓ Question: {args.question}")
+        print(f"Question: {args.question}")
         result = agent.invoke({"input": args.question})
-        print(f"\n✅ Answer: {result['output']}")
+        print(f"\nAnswer: {result['output']}")
     else:
-        print("💬 SQL Agent ready. Ask questions in natural language. Type 'quit' to exit.\n")
+        print("SQL Agent ready. Ask questions in natural language. Type 'quit' to exit.\n")
         while True:
             question = input("You: ").strip()
             if question.lower() in ("quit", "exit", "q"):
