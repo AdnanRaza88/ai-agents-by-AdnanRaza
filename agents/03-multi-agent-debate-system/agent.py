@@ -94,11 +94,11 @@ def run_debate(topic: str, rounds: int = 2) -> None:
     judge = DebateJudge()
 
     print(f"\n{'='*60}")
-    print(f"⚖️  DEBATE: {topic}")
+    print(f"DEBATE: {topic}")
     print(f"{'='*60}")
-    print(f"🟢 FOR: {pro.name} ({pro.expertise})")
-    print(f"🔴 AGAINST: {con.name} ({con.expertise})")
-    print(f"🏛️  Rounds: {rounds}")
+    print(f"FOR: {pro.name} ({pro.expertise})")
+    print(f"AGAINST: {con.name} ({con.expertise})")
+    print(f"Rounds: {rounds}")
     print("=" * 60)
 
     last_con_arg = ""
@@ -107,17 +107,17 @@ def run_debate(topic: str, rounds: int = 2) -> None:
         print(f"\n--- Round {round_num} ---\n")
 
         pro_arg = pro.make_argument(topic, round_num, last_con_arg)
-        print(f"🟢 {pro.name} (FOR):")
+        print(f"{pro.name} (FOR):")
         print(pro_arg)
 
         con_arg = con.make_argument(topic, round_num, pro_arg)
-        print(f"\n🔴 {con.name} (AGAINST):")
+        print(f"\n{con.name} (AGAINST):")
         print(con_arg)
 
         last_con_arg = con_arg
 
     print(f"\n{'='*60}")
-    print("🏛️  JUDGE'S VERDICT")
+    print("JUDGE'S VERDICT")
     print("=" * 60)
     verdict = judge.evaluate(topic, pro, con)
     print(verdict["verdict"])

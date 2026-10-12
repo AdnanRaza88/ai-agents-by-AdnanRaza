@@ -15,7 +15,7 @@ import logging
 from typing import Annotated, TypedDict
 
 from dotenv import load_dotenv
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.graph.message import add_messages
@@ -101,7 +101,7 @@ def main() -> None:
     parser.add_argument("--industry", default="productivity and collaboration software", help="Industry")
     args = parser.parse_args()
 
-    print(f"\n🔍 Analyzing competitive landscape for {args.company}...\n")
+    print(f"\nAnalyzing competitive landscape for {args.company}...\n")
 
     agent = build_graph()
     result = agent.invoke({
@@ -113,9 +113,9 @@ def main() -> None:
         "final_report": "",
     })
 
-    print(f"🏢 Competitors identified: {', '.join(result['competitors'])}\n")
+    print(f"Competitors identified: {', '.join(result['competitors'])}\n")
     print("=" * 60)
-    print("📊 COMPETITIVE ANALYSIS REPORT")
+    print("COMPETITIVE ANALYSIS REPORT")
     print("=" * 60)
     print(result["final_report"])
 

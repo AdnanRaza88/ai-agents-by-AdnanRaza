@@ -1,18 +1,18 @@
 """
 Smart Support Agent using LangGraph with RAG.
 
-Handles customer queries using a knowledge base (product docs).
+Handles customer queries using a knowledge base.
 Routes complex issues to human escalation.
 
 Usage:
     python agent.py
-    python agent.py --kb-dir docs/          # load custom knowledge base
+    python agent.py --kb-dir docs/
 """
 
 import argparse
 import logging
 from pathlib import Path
-from typing import Annotated, Literal, TypedDict
+from typing import Annotated, TypedDict
 
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
@@ -154,7 +154,7 @@ def main() -> None:
         "escalate": False,
     }
 
-    print("\n🎧 Smart Support Agent (CloudSync Pro)")
+    print("\nSmart Support Agent (CloudSync Pro)")
     print("Type 'quit' to exit\n")
 
     while True:
