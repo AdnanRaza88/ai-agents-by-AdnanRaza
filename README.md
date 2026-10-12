@@ -85,4 +85,4 @@ MIT License — see [LICENSE](LICENSE)
 
 ---
 
-**Built with ❤️ by Adnan Raza**
+**Built by Adnan Raza**
