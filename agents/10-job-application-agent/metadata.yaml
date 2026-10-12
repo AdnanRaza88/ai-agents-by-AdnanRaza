@@ -1,0 +1,11 @@
+title: job-application-agent
+description: Tailored cover letter, resume bullets, and interview prep using CrewAI
+author: Adnan Raza
+language: python
+framework: crewai
+tags: [job-application, career, crewai, multi-agent]
+industry: hr
+difficulty: intermediate
+llm: gpt-4o-mini
+entrypoint: agent.py
+requirements: requirements.txt

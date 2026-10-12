@@ -1,0 +1,11 @@
+title: code-review-agent
+description: Deep code review covering bugs, security, style, and performance
+author: Adnan Raza
+language: python
+framework: langchain
+tags: [code-review, software-dev, langchain]
+industry: software-dev
+difficulty: intermediate
+llm: gpt-4o
+entrypoint: agent.py
+requirements: requirements.txt

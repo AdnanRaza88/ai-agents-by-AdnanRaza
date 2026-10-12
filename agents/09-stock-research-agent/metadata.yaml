@@ -1,0 +1,11 @@
+title: stock-research-agent
+description: Yahoo Finance data + AI investment thesis
+author: Adnan Raza
+language: python
+framework: langchain
+tags: [finance, stock, yfinance, langchain]
+industry: finance
+difficulty: intermediate
+llm: gpt-4o-mini
+entrypoint: agent.py
+requirements: requirements.txt

@@ -1,0 +1,11 @@
+title: data-analysis-agent
+description: Pandas-powered natural language data analysis
+author: Adnan Raza
+language: python
+framework: langchain
+tags: [data-analysis, pandas, langchain, analytics]
+industry: analytics
+difficulty: intermediate
+llm: gpt-4o
+entrypoint: agent.py
+requirements: requirements.txt
